@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Author</title>
+</head>
+<style>
+    table {
+        border: 8px outset;
+        border-radius: 10px;
+        border-spacing: 10px;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <h2 style="text-align:center"> Update Details of Author </h2>
+    <form method="POST">
+        {% csrf_token %}
+        <table style="width:50%">
+            <tr>
+                <td>Author ID</td>
+                <td><input type="text" value="{{ author.auid }}" name="auid"> </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" value="{{ author.aname }}" name="aname"> </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" value="{{ author.email }}" name="email"> </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" value="{{ author.phone }}" name="phone"> </td>
+            </tr>
+            <tr>
+                <td colspan="2" ><input type="submit" class="btn btn-success"> </td>
+            </tr>
+        </table>
+
+
+    </form>
+</body>
+
+</html>

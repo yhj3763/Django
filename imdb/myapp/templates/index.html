@@ -1,0 +1,216 @@
+<html>
+<head>
+    <style>
+        table{border-spacing: 40px 10px;}
+        caption{text-align: center;}
+    </style>
+
+</head>
+<body>
+<section class ="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+               {% if messages %}
+                {% for msg in messages %}
+                  <script type="text/javascript">
+                      alert('{{msg}}')
+                  </script>
+                {% endfor %}
+               {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<table>
+    <caption >
+        Authors
+        <a href="{% url 'authadd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:650px">Add
+    </caption>
+    
+    <thead>
+        <tr>
+            <th>Author ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for author in authors.all %}
+        <tr>
+            <td>{{author.auid}}</td>
+            <td>{{author.aname}}</td>
+            <td>{{author.email}}</td>
+            <td>{{author.phone}}</td>
+            <td><a href="{% url 'authedit' author.auid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'authdelete' author.auid %}"><button type="button" class=""btn btn-default>Delete</td>      
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<table>
+<caption>
+Customers
+<a href="{% url 'custadd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:750px">Add
+</caption>
+
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Zip</th>
+            <th>City</th>
+            <th>State</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers.all %}
+        <tr>
+            <td>{{customer.custid}}</td>
+            <td>{{customer.custname}}</td>
+            <td>{{customer.zip}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.state}}</td>
+            <td><a href="{% url 'custedit' customer.custid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'custdelete' customer.custid %}"><button type="button" class=""btn btn-default>Delete</td>   
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<br>
+<table>
+<caption>
+Publishers
+<a href="{% url 'pubadd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:595px">Add
+</caption>
+
+    <thead>
+        <tr>
+            <th>Publisher ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for publisher in publishers.all %}
+        <tr>
+            <td>{{publisher.pubid}}</td>
+            <td>{{publisher.pname}}</td>
+            <td>{{publisher.email}}</td>
+            <td>{{publisher.phone}}</td>
+            <td><a href="{% url 'pubedit' publisher.pubid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'pubdelete' publisher.pubid %}"><button type="button" class=""btn btn-default>Delete</td>   
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<br>
+<table>
+<caption>
+Titles
+<a href="{% url 'titleadd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:340px">Add
+</caption>
+
+    <thead>
+        <tr>
+            <th>Title ID</th>
+            <th>Title</th>
+            <th>Publisher ID</th>
+            <th>Subject ID</th>
+            <th>Published Date</th>
+            <th>Cover</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for title in titles.all %}
+        <tr>
+            <td>{{title.titleid}}</td>
+            <td>{{title.title}}</td>
+            <td>{{title.pubid}}</td>
+            <td>{{title.subid}}</td>
+            <td>{{title.pubdate}}</td>
+            <td>{{title.cover}}</td>
+            <td>{{title.price}}</td>
+            <td><a href="{% url 'titleedit' title.titleid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'titledelete' title.titleid %}"><button type="button" class=""btn btn-default>Delete</td>   
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<br>
+<table>
+<caption>
+Titleauthors
+<a href="{% url 'titleauthoradd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:865px">Add
+</caption>
+
+    <thead>
+        <tr>
+            <th>Title ID</th>
+            <th>Author ID</th>
+            <th>Importance</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for titleauthor in titleauthors.all %}
+        <tr>
+            <td>{{titleauthor.titleid}}</td>
+            <td>{{titleauthor.auid}}</td>
+            <td>{{titleauthor.importance}}</td>
+            <td><a href="{% url 'titleauthoredit' titleauthor.auid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'titleauthordelete' titleauthor.auid %}"><button type="button" class=""btn btn-default>Delete</td>   
+        </tr>
+    {% endfor %}
+    </tbody>
+    
+</table>
+
+<br>
+<br>
+<table>
+<caption>
+Subjects
+<a href="{% url 'subadd'%}"><button type="button" class=""btn btn-default style="position: absolute; right:1020px">Add
+</caption>
+
+    <thead>
+        <tr>
+            <th>Subject ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for subject in subjects.all %}
+        <tr>
+            <td>{{subject.subid}}</td>
+            <td>{{subject.sname}}</td>
+            <td><a href="{% url 'subedit' subject.subid %}"><button type="button" class=""btn btn-default>Edit</td>
+            <td><a href="{% url 'subdelete' subject.subid %}"><button type="button" class=""btn btn-default>Delete</td>   
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+</body>
+
+</html>
