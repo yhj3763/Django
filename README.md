@@ -1,4 +1,4 @@
-# Django
+# Small Project for making GUI for mySQL Database based on Django
 
 This is repository for small project to make GUI for mySQL database by using Django
 
